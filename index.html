@@ -69,27 +69,67 @@
   <header>📺 Mi Canal TV</header>
 
   <div id="player">
-    <iframe id="videoFrame" src="https://drive.google.com/file/d/1Z90f_sbkV-8K5n25zZ8faz7f1xZlS1lh/preview" allow="autoplay" allowfullscreen></iframe>
+    <iframe id="videoFrame" src="" allow="autoplay" allowfullscreen></iframe>
   </div>
 
-  <div class="playlist">
-    <button onclick="playVideo('https://drive.google.com/file/d/1Z90f_sbkV-8K5n25zZ8faz7f1xZlS1lh/preview')">Video 1</button>
-    <button onclick="playVideo('https://drive.google.com/file/d/1fr7JG10vpXf1KG5NkDe7dNykeFjqjme5/preview')">Video 2</button>
-    <button onclick="playVideo('https://drive.google.com/file/d/1qVGMmwZZJ4ff-oWvgQ93KMNZacHqfOiM/preview')">Video 3</button>
-    <button onclick="playVideo('https://drive.google.com/file/d/1ijL82OmffuEX9HlZiy1lZTHrKcASCJ7R/preview')">Video 4</button>
-    <button onclick="playVideo('https://drive.google.com/file/d/1dY8fFBE-pHBIxCXbHxbcEOxfeCWNagRY/preview')">Video 5</button>
-    <button onclick="playVideo('https://drive.google.com/file/d/1JZ6WShtnhVUsGXlRLipMaFh3kM-kTxnH/preview')">Video 6</button>
-    <button onclick="playVideo('https://drive.google.com/file/d/1nqo_LdUpVi5cCApP77NNmheSY1wEECNp/preview')">Video 7</button>
-  </div>
+  <div class="playlist" id="playlist"></div>
 
   <footer>© 2025 Mi Canal TV</footer>
 
   <script>
-    function playVideo(url) {
-      document.getElementById('videoFrame').src = url;
-    }
+    const videos = [
+      // Videos anteriores
+      "https://drive.google.com/file/d/1Z90f_sbkV-8K5n25zZ8faz7f1xZlS1lh/preview",
+      "https://drive.google.com/file/d/1fr7JG10vpXf1KG5NkDe7dNykeFjqjme5/preview",
+      "https://drive.google.com/file/d/1qVGMmwZZJ4ff-oWvgQ93KMNZacHqfOiM/preview",
+      "https://drive.google.com/file/d/1ijL82OmffuEX9HlZiy1lZTHrKcASCJ7R/preview",
+      "https://drive.google.com/file/d/1dY8fFBE-pHBIxCXbHxbcEOxfeCWNagRY/preview",
+      "https://drive.google.com/file/d/1JZ6WShtnhVUsGXlRLipMaFh3kM-kTxnH/preview",
+      "https://drive.google.com/file/d/1nqo_LdUpVi5cCApP77NNmheSY1wEECNp/preview",
+      "https://drive.google.com/file/d/1AoxDbwa_2hxAfS7pNSmRTui1dKtlMw9w/preview",
+      "https://drive.google.com/file/d/1Bye4gK4uOzYs-1B4OWYVZO-QSR4afZXw/preview",
+      "https://drive.google.com/file/d/1HdsEaHbsTOSQJzQeaKKhGEjNqFVtTxYG/preview",
+      "https://drive.google.com/file/d/1QfzSsoHWAMX3W6hJYZR-EvKuMFzcmP8f/preview",
+      "https://drive.google.com/file/d/114PzZw4we5LJUw-New_2I0gd0ACH4Ogf/preview",
+      "https://drive.google.com/file/d/1qyPrudr2i-U6S9ZRb2ayf_M0NtuvQtwq/preview",
+      "https://drive.google.com/file/d/13El3p_tT5yadJJr_IgIB3Te0CwqAc_G3/preview",
+      "https://drive.google.com/file/d/1SqI6l4EkiXWFwanKj7SjqK4U5PWuw7ON/preview",
+      "https://drive.google.com/file/d/17b2Lhh1RPGQtXaTmIycWdDIkekYqWnvL/preview",
+      "https://drive.google.com/file/d/1sIEGslXomagC8j3bWIqy_Q4mevYfWrPF/preview",
+      "https://drive.google.com/file/d/1qGiJih6Qr6-rtNy5NMFusZVw-X5jB0iv/preview",
+      "https://drive.google.com/file/d/1yH17IOeyU63ozv0a2wlTa4jfCBU4xVY_/preview",
+      // Nuevos anteriores
+      "https://drive.google.com/file/d/1c8ckFooBOt4VTFs7aUgn-gHePd7hupOz/preview",
+      "https://drive.google.com/file/d/1qsn_XDq7Vzdku4etkTduLGpzXR-8Zfa0/preview",
+      "https://drive.google.com/file/d/1h36t-a6R6FQ2F1W8RQmJBYVB_m2qjUt-/preview",
+      "https://drive.google.com/file/d/11Lofh1T_KIBT0K2ya05ZGearmN16a7oR/preview",
+      "https://drive.google.com/file/d/1ieTl6nDCEVUOD4y09xsdbhLrLBKY36zt/preview",
+      "https://drive.google.com/file/d/1YgH3Dk9WFM5qR3oNF-rV8BeYK0kMyHCr/preview",
+      "https://drive.google.com/file/d/195XZzKAkzB6tg88lvVxQjQAgVlKb2CeA/preview",
+      "https://drive.google.com/file/d/1Xsfbu5MipnQfyNLREPmGevebapOGvh3T/preview",
+      // Nuevos que agregaste ahora
+      "https://drive.google.com/file/d/1hQ7Bsy3JhWoBDWTffD6mL-zeDzeRyT7L/preview",
+      "https://drive.google.com/file/d/1r9Xv_G8x1ZE9POBUbJkWHC75Aek-aNx8/preview",
+      "https://drive.google.com/file/d/1y2C9rQzcw9fFoGr_88BwVXrJIt-3pZjV/preview"
+    ];
+
+    const player = document.getElementById("videoFrame");
+    const playlist = document.getElementById("playlist");
+
+    // Reproduce el primer video por defecto
+    player.src = videos[0];
+
+    // Crea botones de reproducción dinámicamente
+    videos.forEach((url, index) => {
+      const btn = document.createElement("button");
+      btn.textContent = "Video " + (index + 1);
+      btn.onclick = () => { player.src = url; };
+      playlist.appendChild(btn);
+    });
   </script>
 </body>
 </html>
+
+
 
 
