@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Canal de TV Online</title>
+  <style>
+    body { margin: 0; background: #111; color: #eee; font-family: Arial, sans-serif; }
+    header { background: #222; padding: 20px; font-size: 28px; text-align: center; color: #0ff; }
+    #player { width: 95vw; max-width: 800px; height: auto; margin: 20px auto; display: block; border: 4px solid #0ff; border-radius: 10px; }
+    nav { text-align: center; margin: 10px auto; }
+    .btn { background: #0ff; color: #111; padding: 10px 15px; margin: 2px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+    .btn:hover { background: #0cc; }
+    footer { background: #222; padding: 10px; text-align: center; font-size: 14px; color: #aaa; }
+  </style>
+</head>
+<body>
+  <header>📺 Mi Canal de TV Online</header>
+  <video id="player" controls autoplay></video>
+  <nav id="playlist"></nav>
+  <footer>© 2025 Mi Canal TV</footer>
+  <script>
+    const videos = [
+      { title: "Video 1", url: "https://drive.google.com/uc?export=download&id=TUPRIMERID" },
+      { title: "Video 2", url: "https://drive.google.com/uc?export=download&id=TUSEGUNID" },
+      { title: "Video 3", url: "https://drive.google.com/uc?export=download&id=TUTERCERID" }
+    ];
+    const player = document.getElementById("player");
+    const playlistEl = document.getElementById("playlist");
+    let index = 0;
+    function playVideo(i) {
+      index = i;
+      player.src = videos[i].url;
+      player.play();
+    }
+    videos.forEach((v, i) => {
+      const btn = document.createElement("button");
+      btn.textContent = v.title;
+      btn.className = "btn";
+      btn.onclick = () => playVideo(i);
+      playlistEl.appendChild(btn);
+    });
+    player.src = videos[0].url;
+    player.addEventListener("ended", () => playVideo((index + 1) % videos.length));
+  </script>
+</body>
+</html>
