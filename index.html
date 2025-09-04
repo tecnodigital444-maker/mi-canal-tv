@@ -2,50 +2,94 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mi Canal TV Online</title>
+  <title>Mi Canal TV</title>
   <style>
-    body { 
-      background: #111; 
-      color: #eee; 
-      text-align: center; 
-      font-family: Arial, sans-serif; 
-      margin: 0; 
-      padding: 0; 
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    header { 
-      background: #222; 
-      padding: 20px; 
-      font-size: 28px; 
-      color: #0ff; 
+    header {
+      background: #222;
+      color: #0ff;
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+      font-size: 28px;
     }
-    iframe { 
-      border: 3px solid #0ff; 
-      border-radius: 8px; 
-      margin: 20px auto; 
-      display: block; 
-      max-width: 90%; 
+    #player {
+      margin: 20px auto;
+      width: 80%;
+      max-width: 900px;
+      aspect-ratio: 16/9;
+      border: 3px solid #0ff;
+      border-radius: 8px;
     }
-    footer { 
-      background: #222; 
-      padding: 10px; 
-      color: #aaa; 
-      font-size: 14px; 
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 8px;
+    }
+    .playlist {
+      margin: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    button {
+      background: #0ff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #08a;
+      color: #fff;
+    }
+    footer {
+      background: #222;
+      width: 100%;
+      text-align: center;
+      padding: 10px;
+      color: #aaa;
+      margin-top: auto;
     }
   </style>
 </head>
 <body>
-  <header>📺 Mi Canal de TV Online</header>
+  <header>📺 Mi Canal TV</header>
 
-  <!-- Video de Google Drive incrustado -->
-  <iframe
-    width="800"
-    height="450"
-    src="https://drive.google.com/file/d/1AoxDbwa_2hxAfS7pNSmRTui1dKtlMw9w/preview"
-    allow="autoplay"
-    allowfullscreen>
-  </iframe>
+  <div id="player">
+    <iframe id="videoFrame" src="https://drive.google.com/file/d/1Z90f_sbkV-8K5n25zZ8faz7f1xZlS1lh/preview" allow="autoplay" allowfullscreen></iframe>
+  </div>
+
+  <div class="playlist">
+    <button onclick="playVideo('https://drive.google.com/file/d/1Z90f_sbkV-8K5n25zZ8faz7f1xZlS1lh/preview')">Video 1</button>
+    <button onclick="playVideo('https://drive.google.com/file/d/1fr7JG10vpXf1KG5NkDe7dNykeFjqjme5/preview')">Video 2</button>
+    <button onclick="playVideo('https://drive.google.com/file/d/1qVGMmwZZJ4ff-oWvgQ93KMNZacHqfOiM/preview')">Video 3</button>
+    <button onclick="playVideo('https://drive.google.com/file/d/1ijL82OmffuEX9HlZiy1lZTHrKcASCJ7R/preview')">Video 4</button>
+    <button onclick="playVideo('https://drive.google.com/file/d/1dY8fFBE-pHBIxCXbHxbcEOxfeCWNagRY/preview')">Video 5</button>
+    <button onclick="playVideo('https://drive.google.com/file/d/1JZ6WShtnhVUsGXlRLipMaFh3kM-kTxnH/preview')">Video 6</button>
+    <button onclick="playVideo('https://drive.google.com/file/d/1nqo_LdUpVi5cCApP77NNmheSY1wEECNp/preview')">Video 7</button>
+  </div>
 
   <footer>© 2025 Mi Canal TV</footer>
+
+  <script>
+    function playVideo(url) {
+      document.getElementById('videoFrame').src = url;
+    }
+  </script>
 </body>
 </html>
+
 
