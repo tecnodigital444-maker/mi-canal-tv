@@ -4,49 +4,48 @@
   <meta charset="UTF-8">
   <title>Mi Canal TV Online</title>
   <style>
-    body {
-      text-align: center;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
-      margin: 0;
-      padding: 0;
+    body { 
+      background: #111; 
+      color: #eee; 
+      text-align: center; 
+      font-family: Arial, sans-serif; 
+      margin: 0; 
+      padding: 0; 
     }
-    header {
-      background: #222;
-      padding: 20px;
-      font-size: 24px;
-      font-weight: bold;
-      color: #0ff;
+    header { 
+      background: #222; 
+      padding: 20px; 
+      font-size: 28px; 
+      color: #0ff; 
     }
-    video {
-      width: 90%;
-      max-width: 800px;
-      margin-top: 20px;
-      border: 3px solid #0ff;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #0ff;
+    iframe { 
+      border: 3px solid #0ff; 
+      border-radius: 8px; 
+      margin: 20px auto; 
+      display: block; 
+      max-width: 90%; 
     }
-    footer {
-      margin-top: 20px;
-      padding: 10px;
-      background: #222;
-      font-size: 14px;
-      color: #aaa;
+    footer { 
+      background: #222; 
+      padding: 10px; 
+      color: #aaa; 
+      font-size: 14px; 
     }
   </style>
 </head>
 <body>
   <header>📺 Mi Canal de TV Online</header>
 
-  <video id="player" controls autoplay loop>
-    <source src="https://drive.google.com/uc?export=download&id=1AoxDbwa_2hxAfS7pNSmRTui1dKtlMw9w" type="video/mp4">
-    Tu navegador no soporta el video.
-  </video>
+  <!-- Video de Google Drive incrustado -->
+  <iframe
+    width="800"
+    height="450"
+    src="https://drive.google.com/file/d/1AoxDbwa_2hxAfS7pNSmRTui1dKtlMw9w/preview"
+    allow="autoplay"
+    allowfullscreen>
+  </iframe>
 
-  <footer>
-    © 2025 Mi Canal TV | Todos los derechos reservados
-  </footer>
+  <footer>© 2025 Mi Canal TV</footer>
 </body>
 </html>
 
